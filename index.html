@@ -17,6 +17,57 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('#progress').text('Progress: 0%');
+            
+            $(document).ready(function() {
+                $('#convert-form').submit(function(event) {
+                    event.preventDefault();  // 폼 기본 동작 방지
+        
+                    var formData = new FormData(this);
+        
+                    $.ajax({
+                        // url: 'http://127.0.0.1:5000/convert',
+                        url: 'https://8j5ngxuajc.execute-api.ap-northeast-2.amazonaws.com/production/convert',
+                        type: 'POST',
+                        data: formData,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        xhr: function() {
+                            var xhr = new window.XMLHttpRequest();
+                            xhr.upload.addEventListener('progress', function(event) {
+                                if (event.lengthComputable) {
+                                    var percent = (event.loaded / event.total) * 100;
+                                    var currentProgress = 0;
+                                    var increment = 1;  // 2초에 1%씩 증가
+                                    var interval = setInterval(function() {
+                                        if (currentProgress >= 99) {
+                                            clearInterval(interval);
+                                        } else {
+                                            currentProgress += increment;
+                                            $('#progress').text('Progress: ' + currentProgress.toFixed(1) + '%');
+                                        }
+                                    }, 250);  // 2초 간격으로 업데이트
+                                }
+                            }, false);
+                            return xhr;
+                        },
+                        success: function(response) {
+                            $('#progress').text('Progress: 100%');
+                            if (response.download_link) {
+                                $('#download-link').html('<a href="' + response.download_link + '">Download</a>');
+                                $('#download-link').show();
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.log(error);
+                        }
+                    });
+                });
+            });
+        </script>
         <!-- Background Video-->
         <video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="assets/mp4/bg.mp4" type="video/mp4" /></video>
         <!-- Masthead-->
@@ -32,25 +83,22 @@
                     <!-- To make this form functional, sign up at-->
                     <!-- https://startbootstrap.com/solution/contact-forms-->
                     <!-- to get an API token!-->
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <form id="convert-form">
                         <!-- Email address input-->
                         <div class="row input-group-newsletter">
-                            <div class="col"><input class="form-control" id="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
-                            <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
+                            <div class="col"><input class="form-control" id="link" type="text" name="youtube_link" placeholder="Enter youtube link..." aria-label="Enter youtube link..." data-sb-validations="required" /></div>
                         </div>
-                        <div class="invalid-feedback mt-2" data-sb-feedback="email:required">An email is required.</div>
-                        <div class="invalid-feedback mt-2" data-sb-feedback="email:email">Email is not valid.</div>
+                        <p class="mb-5"> </p>
+                        <div class="row input-group-newsletter">
+                            <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Transfer & Download!</button></div>
+                        </div>
                         <!-- Submit success message-->
                         <!---->
                         <!-- This is what your users will see when the form-->
                         <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3 mt-2">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                To activate this form, sign up at
-                                <br />
-                                <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
+                        <div id="progress" class="mb-5"></div>
+                        <div id="download-link" class="mb-5" style="display: none;">
+                            <a id="download-btn" href="#" download>Download</a>
                         </div>
                         <!-- Submit error message-->
                         <!---->

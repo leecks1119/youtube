@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Converter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    form {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    #progress {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: bold;
+    }
+
+    #download-link {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    #download-btn {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    #download-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>YouTube Converter</h1>
+        <form id="convert-form">
+            <label for="youtube-link">YouTube Link:</label>
+            <input type="text" id="youtube-link" name="youtube_link" required>
+            <button type="submit">Convert</button>
+        </form>
+        <div id="progress"></div>
+        <div id="download-link" style="display: none;">
+            <a id="download-btn" href="#" download>Download</a>
+        </div>
+    </div>
+    <script>
+        $('#progress').text('Progress: 0%');
+        
+        $(document).ready(function() {
+            $('#convert-form').submit(function(event) {
+                event.preventDefault();  // 폼 기본 동작 방지
+    
+                var formData = new FormData(this);
+    
+                $.ajax({
+                    url: 'http://127.0.0.1:5000/convert',
+                    type: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    contentType: false,
+                    processData: false,
+                    xhr: function() {
+                        var xhr = new window.XMLHttpRequest();
+                        xhr.upload.addEventListener('progress', function(event) {
+                            if (event.lengthComputable) {
+                                var percent = (event.loaded / event.total) * 100;
+                                var currentProgress = 0;
+                                var increment = 1;  // 2초에 1%씩 증가
+                                var interval = setInterval(function() {
+                                    if (currentProgress >= 99) {
+                                        clearInterval(interval);
+                                    } else {
+                                        currentProgress += increment;
+                                        $('#progress').text('Progress: ' + currentProgress.toFixed(1) + '%');
+                                    }
+                                }, 250);  // 2초 간격으로 업데이트
+                            }
+                        }, false);
+                        return xhr;
+                    },
+                    success: function(response) {
+                        $('#progress').text('Progress: 100%');
+                        if (response.download_link) {
+                            $('#download-link').html('<a href="' + response.download_link + '">Download</a>');
+                            $('#download-link').show();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+    </body>
+    </html>
+    
