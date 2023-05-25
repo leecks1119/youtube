@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Coming Soon - Start Bootstrap Theme</title>
+        <title></title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -19,6 +19,7 @@
     <body>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
+            var interval; // interval 변수 선언
             $('#progress').text('Progress: 0%');
             
             $(document).ready(function() {
@@ -42,7 +43,7 @@
                                     var percent = (event.loaded / event.total) * 100;
                                     var currentProgress = 0;
                                     var increment = 1;  // 2초에 1%씩 증가
-                                    var interval = setInterval(function() {
+                                     interval = setInterval(function() {
                                         if (currentProgress >= 99) {
                                             clearInterval(interval);
                                         } else {
@@ -55,10 +56,12 @@
                             return xhr;
                         },
                         success: function(response) {
-                            $('#progress').text('Progress: 100%');
                             if (response.download_link) {
+                                clearInterval(interval);
                                 $('#download-link').html('<a href="' + response.download_link + '">Download</a>');
                                 $('#download-link').show();
+                                $('#progress').text('Progress: 100%');
+                                alert('Convert Success')
                             }
                         },
                         error: function(xhr, status, error) {
@@ -74,8 +77,8 @@
         <div class="masthead">
             <div class="masthead-content text-white">
                 <div class="container-fluid px-4 px-lg-0">
-                    <h1 class="fst-italic lh-1 mb-4">Our Website is Coming Soon</h1>
-                    <p class="mb-5">We're working hard to finish the development of this site. Sign up below to receive updates and to be notified when we launch!</p>
+                    <h1 class="fst-italic lh-1 mb-4">Youtube to mp3!<br>let's start convert & download</h1>
+                    <p class="mb-5">If you enter the YouTube link and press the button, only the sound of the YouTube video will be downloaded as an mp3 file.</p>
                     <!-- * * * * * * * * * * * * * * *-->
                     <!-- * * SB Forms Contact Form * *-->
                     <!-- * * * * * * * * * * * * * * *-->
