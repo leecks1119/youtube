@@ -37,6 +37,11 @@
                     event.preventDefault();  // 폼 기본 동작 방지
         
                     var formData = new FormData(this);
+                    var linkInput = $('#link');
+                    if (linkInput.val() === '') {
+                        alert('Please enter a YouTube link.');
+                        return;
+                    }
         
                     $.ajax({
                         // url: 'http://127.0.0.1:5000/convert',
