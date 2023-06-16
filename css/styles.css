@@ -10885,6 +10885,8 @@ img.bg-video {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
 }
 .masthead:before {
   content: "";
