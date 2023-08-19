@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /css/
 Disallow: /js/
 Disallow: /assets/
+
+#DaumWebMasterTool:7528a818cdb9d03c2ac7fa7dea289a0c89ce070cf2f0f10fdb9851360edcc38b:HxAPWDQbRxltVIZulz/4zw==
