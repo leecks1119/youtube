@@ -1,51 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="utf-8" />
         <meta name="google-site-verification" content="U2uBxaCICpf3t7lyZlxYcE9JimV4cpuHqn4xr3oIRAY" />
         <meta name="naver-site-verification" content="95c49226aa9d057008b505f9c990bb92df97d712" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Convert and download YouTube videos to MP3 easily and quickly online tool." />
+        <meta name="description" content="유튜브 음원추출 영상을 다운로드 받아 귀로 즐기세요." />
+        <meta name="keywords" content="유튜브 음원추출, 유튜브 음원추출 사이트, youtube mp3 음원추출, youtube mp3 download, 유튜브 음원추출 2conv">
         <meta name="author" content="" />
-        <meta name="keywords" content="YouTube, MP3, converter, download, video, audio">
-        <title>YouTube to MP3 Converter - Online Tool</title>
 
         <!-- Google SEO Meta Tags -->
-        <meta itemprop="name" content="YouTube to MP3 Converter - Online Tool">
-        <meta itemprop="description" content="Convert and download YouTube videos to MP3 easily and quickly online tool.">
-        <meta itemprop="image" content="https://youtubesoundmp3.com/assets/img/meta_image.png">
+        <meta itemprop="name" content="유튜브 음원 추출 - 온라인 도구">
+        <meta itemprop="description" content="간편하고 빠르게 유튜브 비디오를 MP3로 변환하고 다운로드하세요.">
+        <meta itemprop="image" content="https://convert.dev-nasus.com/assets/img/meta_image.png">
 
         <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="YouTube to MP3 Converter - Online Tool">
-        <meta property="og:description" content="Convert and download YouTube videos to MP3 easily and quickly online tool.">
-        <meta property="og:image" content="https://youtubesoundmp3.com/assets/img/meta_image.png">
-        <meta property="og:url" content="https://youtubesoundmp3.com">
+        <meta property="og:title" content="유튜브 음원 추출 - 온라인 도구">
+        <meta property="og:description" content="간편하고 빠르게 유튜브 비디오를 MP3로 변환하고 다운로드하세요.">
+        <meta property="og:image" content="https://convert.dev-nasus.com/assets/img/meta_image.png">
+        <meta property="og:url" content="https://convert.dev-nasus.com">
         <meta property="og:type" content="website">
 
         <!-- Twitter Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="YouTube to MP3 Converter - Online Tool">
-        <meta name="twitter:description" content="Convert and download YouTube videos to MP3 easily and quickly online tool.">
-        <meta name="twitter:image" content="https://youtubesoundmp3.com/assets/img/meta_image.png">
+        <meta name="twitter:title" content="유튜브 음원 추출 - 온라인 도구">
+        <meta name="twitter:description" content="간편하고 빠르게 유튜브 비디오를 MP3로 변환하고 다운로드하세요.">
+        <meta name="twitter:image" content="https://convert.dev-nasus.com/assets/img/meta_image.png">
 
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <title>유튜브 음원 추출 - 온라인 도구</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon_img.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5557681358035154"
-            crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     </head>
-    <body style=" background-image: url('./assets/img/meta_image.png'); background-size: auto; background-position: right; background-attachment: fixed; ">
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="#!">Download youtube mp3</a>
+                <a class="btn btn-primary" href="#bottom-download">youtube download</a>
+            </div>
+        </nav>
         <!-- Masthead-->
-        <div style="overflow-y: scroll;">
-            <div class="masthead">
-                <div class="masthead-content text-white">
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">유튜브 음원추출</h1>
+                            <h2>프리미엄 없이 화면 끄고 즐기세요 :&#41;</h2>
+                            <br>
+                            <form class="form-subscribe" id="convert-form" type="text">
+                                <div class="row">
+                                    <div class="col">
+                                        <input class="form-control form-control-lg" id="link" type="text" name="youtube_link" placeholder="유튜브 영상 주소를 입력해주세요."/>
+                                    </div>
+                                    <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">음원추출</button></div>
+                                </div>
+                                <br>
+                                <div id="progress" class="mb-5"></div>
+                                <div id="download-link" class="mb-5" style="display: none;">
+                                    <a id="download-btn" class="btn btn-primary btn-lg" href="#" download>다운로드 받기</a>
+                                </div>
+
+                                <p>유튜브 mp3 추출, youtube mp3 음원추출, 유튜브 mp3 추출, 유튜브 mp3 다운 사이트, 유튜브 음원추출 2conv, 유튜브 mp3 고음질 다운, convertidor de youtube a mp3, descargar musica de youtube</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Icons Grid-->
+        <section class="features-icons bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                            <h3>유튜브 음원추출 사이트</h3>
+                            <p class="lead mb-0">유튜브 광고때문에 짜증나셨나요?
+                                이젠 광고없이 다운받아 무료로 즐기세요</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>빠른 유튜브 음원추출 </h3>
+                            <p class="lead mb-0">5분 짜리 유튜브 음원추출 1초면 youtube to mp3 어디서든 음원을 즐기세요</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                            <h3>손쉬운 유튜브 음원추출</h3>
+                            <p class="lead mb-0">유튜브 다운로드 링크 하나로 감상해요! 유튜브 음원추출하여 고음질로 즐기세요</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image Showcases-->
+        <section class="showcase">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/youtube_to_mp3_1.PNG')"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>유튜브 음원추출 사용법 1.</h2>
+                        <p class="lead mb-0">conver.dev-nasus.com 유튜브 음원추출 사이트에 접속합니다. 화면 상단과 하단에 유튜브 음원추출 할 주소를 입력하는 칸을 찾습니다.</p>
+                        <br>
+                        <p class="lead mb-0">입력 칸에는 유튜브 음원추출 할 주소를 입력할 것 입니다.</p>
+                        
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/youtube_to_mp3_2.PNG')"></div>
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>유튜브 음원추출 사용법 2.</h2>
+                        <p class="lead mb-0">유튜브 음원추출할 영상을 유튜브에서 검색하세요. 그리고 영상을 클릭하여 화면 상단에 보이는 주소를 복사하거나, 공유하기 버튼 또는 링크 복사 버튼을 눌러 링크를 복사하세요.</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/youtube_to_mp3_3.PNG'); background-size: cover;"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>유튜브 음원추출 사용법 3.</h2>
+                        <p class="lead mb-0">유튜브 음원추출 버튼을 클릭해서 음원을 추출하세요! 그러면 하단에 다운로드 링크가 나타납니다. 유튜브 음원추출 다운로드 링크를 누르면 언제든지 편하게 들으실 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials-->
+        <section class="testimonials text-center bg-light">
+            <div class="container">
+                <h2 class="mb-5">더 좋은 서비스를 제공하겠습니다 :&#41;</h2>
+                <div class="row">
                     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5557681358035154"
                         crossorigin="anonymous"></script>
                     <!-- convert_horizon -->
@@ -58,150 +153,49 @@
                     <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
-                    <br>
-                    <div class="container-fluid px-4 px-lg-0">
-                        <h1 class="fst-italic lh-1 mb-4">Youtube to mp3!<br>let's start convert & download</h1>
-                        <p class="mb-5">If you enter the YouTube link and press the button, only the sound of the YouTube video will be downloaded as an mp3 file.</p>
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-                        <form id="convert-form">
-                            <!-- Email address input-->
-                            <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="link" type="text" name="youtube_link" placeholder="Enter youtube link..." aria-label="Enter youtube link..." data-sb-validations="required" /></div>
-                            </div>
-                            <p class="mb-5"> </p>
-                            <div class="row input-group-newsletter">
-                                <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Transfer & Download!</button></div>
-                            </div>
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <div id="progress" class="mb-5"></div>
-                            <div id="download-link" class="mb-5" style="display: none;">
-                                <a id="download-btn" href="#" download>Download</a>
-                            </div>
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
-                        </form>
-                    </div>
-                    <ins class="kakao_ad_area" style="display:none;"
-                    data-ad-unit = "DAN-YbeOxco5n9720pfm"
-                    data-ad-width = "300"
-                    data-ad-height = "250">
-                </ins>
                 </div>
             </div>
-        </div>
+        </section>
+        <!-- Call to Action-->
+        <section class="call-to-action text-white text-center" id="bottom-download">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <h2 class="mb-4">유튜브 음원추출 시도하세요 :&#41;</h2>
+                        <form class="form-subscribe" id="bottom_convert-form" type="text">
+                            <div class="row">
+                                <div class="col">
+                                    <input class="form-control form-control-lg" id="bottom_link" type="text" name="youtube_link" placeholder="유튜브 영상 주소를 입력해주세요."/>
+                                </div>
+                                <div class="col-auto"><button class="btn btn-primary btn-lg" id="bottom_submitButton" type="submit">음원추출</button></div>
+                                
+                            </div>
+                            <br>
+                            <div id="bottom_progress" class="mb-5"></div>
+                            <div id="bottom_download-link" class="mb-5" style="display: none;">
+                                <a id="bottom_download-btn" class="btn btn-primary btn-lg" href="#" download>다운로드 받기</a>
+                            </div>
+
+                            <p>유튜브 mp3 추출, youtube mp3 음원추출, 유튜브 mp3 추출, 유튜브 mp3 다운 사이트, 유튜브 음원추출 2conv, 유튜브 mp3 고음질 다운, convertidor de youtube a mp3, descargar musica de youtube</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; convert.dev-nasus.com 2023. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="js/scripts.js"></script>
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-          
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-              apiKey: "AIzaSyBeYVhjRO6G7KrFSh2Dji7_TSEP_d9dvgA",
-              authDomain: "tomp3-83b4a.firebaseapp.com",
-              projectId: "tomp3-83b4a",
-              storageBucket: "tomp3-83b4a.appspot.com",
-              messagingSenderId: "10657868847",
-              appId: "1:10657868847:web:efae32a72eb2e97154aada",
-              measurementId: "G-GXWZP5PVJV"
-            };
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-        </script>
-        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-        <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
-        <script type="text/javascript">
-            if(!wcs_add) var wcs_add = {};
-            wcs_add["wa"] = "18572b4cb2894d0";
-            if(window.wcs) {
-            wcs_do();
-            }
-        </script>
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-            var interval; // interval 변수 선언
-            $('#progress').text('Progress: 0%');
-            
-            $(document).ready(function() {
-                $('#convert-form').submit(function(event) {
-                    event.preventDefault();  // 폼 기본 동작 방지
-        
-                    var formData = new FormData(this);
-                    var linkInput = $('#link');
-                    if (linkInput.val() === '') {
-                        alert('Please enter a YouTube link.');
-                        return;
-                    }
-        
-                    $.ajax({
-                        // url: 'http://127.0.0.1:5000/convert',
-                        url: 'https://8j5ngxuajc.execute-api.ap-northeast-2.amazonaws.com/production/convert',
-                        type: 'POST',
-                        data: formData,
-                        dataType: 'json',
-                        contentType: false,
-                        processData: false,
-                        xhr: function() {
-                            var xhr = new window.XMLHttpRequest();
-                            xhr.upload.addEventListener('progress', function(event) {
-                                if (event.lengthComputable) {
-                                    var percent = (event.loaded / event.total) * 100;
-                                    var currentProgress = 0;
-                                    var increment = 1;  // 2초에 1%씩 증가
-                                     interval = setInterval(function() {
-                                        if (currentProgress >= 99) {
-                                            clearInterval(interval);
-                                        } else {
-                                            currentProgress += increment;
-                                            $('#progress').text('Progress: ' + currentProgress.toFixed(1) + '%');
-                                        }
-                                    }, 250);  // 2초 간격으로 업데이트
-                                }
-                            }, false);
-                            return xhr;
-                        },
-                        success: function(response) {
-                            if (response.download_link) {
-                                clearInterval(interval);
-                                $('#download-link').html('<a href="' + response.download_link + '">Download</a>');
-                                $('#download-link').show();
-                                $('#progress').text('Progress: 100%');
-                                alert('Convert Success')
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.log(error);
-                            $('#progress').text('Progress: 0%');
-                            alert('Sorry, Convert Fail')
-                        }
-                    });
-                });
-            });
-        </script>
     </body>
 </html>
