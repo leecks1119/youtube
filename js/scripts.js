@@ -140,8 +140,8 @@ $(document).ready(function() {
         }
 
         $.ajax({
-            url: 'http://127.0.0.1:5000/subtitle',
-            // url: 'https://8j5ngxuajc.execute-api.ap-northeast-2.amazonaws.com/production/subtitle',
+            // url: 'http://127.0.0.1:5000/subtitle',
+            url: 'https://8j5ngxuajc.execute-api.ap-northeast-2.amazonaws.com/production/subtitle',
             type: 'POST',
             data: formData,
             dataType: 'json',
