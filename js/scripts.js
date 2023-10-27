@@ -126,3 +126,59 @@ $(document).ready(function() {
         });
     });
 });
+
+
+$(document).ready(function() {
+    $('#subtitle-convert-form').submit(function(event) {
+        event.preventDefault();  // 폼 기본 동작 방지
+
+        var formData = new FormData(this);
+        var linkInput = $('#link');
+        if (linkInput.val() === '') {
+            alert('유튜브 음원추출 할 주소를 입력해주세요!');
+            return;
+        }
+
+        $.ajax({
+            url: 'http://127.0.0.1:5000/subtitle',
+            // url: 'https://8j5ngxuajc.execute-api.ap-northeast-2.amazonaws.com/production/subtitle',
+            type: 'POST',
+            data: formData,
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener('progress', function(event) {
+                    if (event.lengthComputable) {
+                        var percent = (event.loaded / event.total) * 100;
+                        var currentProgress = 0;
+                        var increment = 1;  // 2초에 1%씩 증가
+                            interval = setInterval(function() {
+                            if (currentProgress >= 99) {
+                                clearInterval(interval);
+                            } else {
+                                currentProgress += increment;
+                                $('#progress').text('Progress: ' + currentProgress.toFixed(1) + '%');
+                            }
+                        }, 250);  // 2초 간격으로 업데이트
+                    }
+                }, false);
+                return xhr;
+            },
+            success: function(response) {
+                if (response.subtitle_data) {
+                    clearInterval(interval);
+                    $('#progress').text('Progress: 100%');
+                    $('#subtitle-area').text(response.subtitle_data);
+                    alert('유튜브 자막추출이 완료되었습니다! 화면 아래를 확인해주세요.')
+                }
+            },
+            error: function(xhr, status, error) {
+                clearInterval(interval);
+                $('#progress').text('Progress: 0%');
+                alert('유튜브 자막추출이 불가한 영상입니다.')
+            }
+        });
+    });
+});
