@@ -135,7 +135,7 @@ $(document).ready(function() {
         var formData = new FormData(this);
         var linkInput = $('#link');
         if (linkInput.val() === '') {
-            alert('유튜브 음원추출 할 주소를 입력해주세요!');
+            alert('유튜브 자막추출 할 주소를 입력해주세요!');
             return;
         }
 
@@ -182,3 +182,21 @@ $(document).ready(function() {
         });
     });
 });
+
+document.getElementById("copy-button").addEventListener("click", function() {
+    // subtitle-area의 텍스트 내용을 가져옵니다.
+    var subtitleText = document.getElementById("subtitle-area").textContent;
+
+    // 텍스트를 클립보드에 복사합니다.
+    navigator.clipboard.writeText(subtitleText)
+        .then(function() {
+            // 복사가 성공했을 때 실행할 코드
+            alert("자막이 클립보드에 복사되었습니다!");
+        })
+        .catch(function(err) {
+            // 복사가 실패했을 때 실행할 코드
+            console.error("자막 복사 실패: ", err);
+            alert("자막 복사에 실패했습니다.");
+        });
+});
+
