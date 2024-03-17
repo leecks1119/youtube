@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-    <script>
-      window.OneSignalDeferred = window.OneSignalDeferred || [];
-      OneSignalDeferred.push(function(OneSignal) {
-        OneSignal.init({
-          appId: "b71b19b0-7bbe-40dc-949f-3c0f53c455ab",
-        });
-      });
-    </script>
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(function(OneSignal) {
+    OneSignal.init({
+      appId: "b71b19b0-7bbe-40dc-949f-3c0f53c455ab",
+    });
+  });
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My HTML Document</title>
@@ -17,5 +17,7 @@
 <body>
     <h1>Hello, World!</h1>
     <p>This is a basic HTML document.</p>
+
+    <div class='onesignal-customlink-container'></div>
 </body>
 </html>
